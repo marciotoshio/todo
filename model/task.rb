@@ -5,6 +5,8 @@ class Task
 	key :done,		Boolean
 	timestamps!
 
+	belongs_to :project
+
 	scope :undone, where(:done => false)
 	scope :done, where(:done => true)
 end

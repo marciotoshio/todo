@@ -1,11 +1,19 @@
-<h1>ToDo</h1>
+<div class="row">
+	<div class="span3">
+		<h2>Projects</h2>
+		<% @projects.each do |project| %>
+			<h3><%= project.name %></h3>
+		<% end %>
+	</div>
+	<div class="span9">
+		<h2>Tasks</h2>
+		<% @undone_tasks.each do |task| %>
+			<h3><%= task.title %></h3>
+		<% end %>
 
-<h2>Tasks</h2>
-<% @undone_tasks.each do |task| %>
-	<h3><%= task.title %></h3>
-<% end %>
-
-<h2>Done tasks</h2>
-<% @done_tasks.each do |task| %>
-	<h3><%= task.title %></h3>
-<% end %>
+		<h2>Done tasks</h2>
+		<% @done_tasks.each do |task| %>
+			<h3><%= task.title %></h3>
+		<% end %>
+	</div>
+</div>
