@@ -1,3 +1,11 @@
-<% @tasks.each do |task| %>
-	<h2><%= task.title %></h2>
+<h1>ToDo</h1>
+
+<h2>Tasks</h2>
+<% @undone_tasks.each do |task| %>
+	<h3><%= task.title %></h3>
+<% end %>
+
+<h2>Done tasks</h2>
+<% @done_tasks.each do |task| %>
+	<h3><%= task.title %></h3>
 <% end %>
