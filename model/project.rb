@@ -12,4 +12,11 @@ class Project
 	def done_tasks
 		tasks.select{ |t| t.done }
 	end
+
+	def add_task(task_title)
+		new_task = Task.new
+		new_task.title = task_title
+		self.tasks << new_task
+		self.save
+	end
 end

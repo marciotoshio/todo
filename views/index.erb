@@ -1,9 +1,12 @@
 <div class="row">
 	<div class="span3">
-		<%= partial(:project_list, :projects => @projects) %>
+		<%= partial(:project_list, :projects => @viewmodel.projects) %>
 	</div>
 	<div class="span9">
-		<%= partial(:task_list, { :title => 'Tasks', :tasks => @undone_tasks, :type => 'undone-tasks' }) %>
-		<%= partial(:task_list, { :title => 'Done tasks', :tasks => @done_tasks, :type => 'done-tasks' }) %>
+		<%= partial(:task_list, { :title => 'Tasks', :tasks => @viewmodel.undone_tasks, :type => 'undone-tasks' }) %>
+		<%if(@viewmodel.project_id)%>
+			<%= partial(:form_new_task, :project_id => @viewmodel.project_id) %>
+		<% end %>
+		<%= partial(:task_list, { :title => 'Done tasks', :tasks => @viewmodel.done_tasks, :type => 'done-tasks' }) %>
 	</div>
 </div>
