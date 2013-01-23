@@ -7,6 +7,6 @@ class Task
 
 	belongs_to :project
 
-	scope :undone, where(:done => false)
+	scope :undone, where(:done => false) 
 	scope :done, where(:done => true)
 end
