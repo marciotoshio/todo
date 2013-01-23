@@ -3,6 +3,12 @@ require './model/task'
 require './model/project'
 
 class ToDo < Sinatra::Base
+	helpers do
+    	def partial (template, locals = {})
+      		erb(template, :layout => false, :locals => locals)
+    	end
+  	end
+
 	get '/?:project_id?' do
 		@projects = Project.all #for the project list menu
 

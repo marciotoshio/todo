@@ -1,19 +1,9 @@
 <div class="row">
 	<div class="span3">
-		<h2>Projects</h2>
-		<% @projects.each do |project| %>
-			<h3><a href="?project_id=<%= project._id %>"><%= project.name %></a></h3>
-		<% end %>
+		<%= partial(:project_list, :projects => @projects) %>
 	</div>
 	<div class="span9">
-		<h2>Tasks</h2>
-		<% @undone_tasks.each do |task| %>
-			<h3><%= task.title %></h3>
-		<% end %>
-
-		<h2>Done tasks</h2>
-		<% @done_tasks.each do |task| %>
-			<h3><%= task.title %></h3>
-		<% end %>
+		<%= partial(:task_list, { :title => 'Tasks', :tasks => @undone_tasks, :type => 'undone-tasks' }) %>
+		<%= partial(:task_list, { :title => 'Done tasks', :tasks => @done_tasks, :type => 'done-tasks' }) %>
 	</div>
 </div>

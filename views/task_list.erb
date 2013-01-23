@@ -1,0 +1,18 @@
+<h2><%= title %></h2>
+
+<div class="accordion" id="<%= type %>">
+	<% tasks.each do |task| %>
+		<div class="accordion-group">
+	    	<div class="accordion-heading">
+	      		<a class="accordion-toggle" data-toggle="collapse" data-parent="#<%= type %>" href="#<%= task._id %>">
+	        		<%= task.title %>
+	      		</a>
+	    	</div>
+	    	<div id="<%= task._id %>" class="accordion-body collapse">
+	      		<div class="accordion-inner">
+	        		<%= task._id %> Anim pariatur cliche... 
+	      		</div>
+	    	</div>
+		</div>
+	<% end %>
+</div>
