@@ -1,5 +1,7 @@
-<form action="/create" method="POST" class="form-inline">
-	<input type="text" name="task_title" class="span8" placeholder="new task title" />
-	<input type="hidden" name="project_id" value="<%= project_id %>" />
-	<button type="submit" class="btn"><i class="icon-plus"></i> Create</button>
-</form>
+<%if(project)%>
+	<form action="/create_task" method="POST" class="form-inline">
+		<input type="text" name="task_title" class="span3" placeholder="new task title" />
+		<input type="hidden" name="project_id" value="<%= project._id %>" />
+		<button type="submit" class="btn"><i class="icon-plus"></i></button>
+	</form>
+<% end %>

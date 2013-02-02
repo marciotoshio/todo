@@ -1,17 +1,14 @@
 <h2><%= title %></h2>
 
-<div class="accordion" id="<%= type %>">
+<div class="task-list">
 	<% tasks.each do |task| %>
-		<div class="accordion-group">
-	    	<div class="accordion-heading">
-	      		<a class="accordion-toggle" data-toggle="collapse" data-parent="#<%= type %>" href="#<%= task._id %>">
-	        		<%= task.title %>
-	      		</a>
+		<div class="task-group">
+	    	<div class="task-title">
+	    		<input type="checkbox" />
+	  			<h3><a class="task_title_link" href="#<%= task._id %>"><%= task.title %></a></h3>
 	    	</div>
-	    	<div id="<%= task._id %>" class="accordion-body collapse">
-	      		<div class="accordion-inner">
-	        		<%= task._id %> Anim pariatur cliche... 
-	      		</div>
+	    	<div id="<%= task._id %>" class="task-description">
+        		<%= task._id %> Anim pariatur cliche... 
 	    	</div>
 		</div>
 	<% end %>

@@ -16,6 +16,7 @@ class Project
 	def add_task(task_title)
 		new_task = Task.new
 		new_task.title = task_title
+		new_task.done = false
 		self.tasks << new_task
 		self.save
 	end
