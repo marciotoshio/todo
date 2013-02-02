@@ -1,4 +1,4 @@
-todo
+ToDo
 ====
 
-ToDo
+Sinatra + Mongo todo app
