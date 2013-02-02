@@ -21,3 +21,7 @@
 .task-group .task-description {
 	border-top: 1px solid #e5e5e5;
 }
+
+.done-tasks {
+	opacity: 0.3;
+}

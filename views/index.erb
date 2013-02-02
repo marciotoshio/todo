@@ -5,7 +5,7 @@
 		<%= partial(:form_new_project) %>
 	</div>
 	<div class="span9">
-		<h2><%= @viewmodel.project ? @viewmodel.project.name : '' %></h2>
+		<h2><%= @viewmodel.project ? "Project #{@viewmodel.project.name} tasks" : 'All tasks' %></h2>
 		<%= partial(:task_list, { :title => 'Tasks', :tasks => @viewmodel.undone_tasks, :type => 'undone-tasks' }) %>
 		<hr />
 		<%= partial(:form_new_task, :project => @viewmodel.project) %>

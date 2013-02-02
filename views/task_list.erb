@@ -1,10 +1,9 @@
-<h2><%= title %></h2>
-
-<div class="task-list">
+<div class="task-list <%= type %>" data-task-type="<%= type %>">
+	<h2><%= title %></h2>
 	<% tasks.each do |task| %>
 		<div class="task-group">
 	    	<div class="task-title">
-	    		<input type="checkbox" />
+	    		<input type="checkbox" value="<%= task._id %>" <%= type == 'undone-tasks' ? '' : 'checked="checked"' %> />
 	  			<h3><a class="task_title_link" href="#<%= task._id %>"><%= task.title %></a></h3>
 	    	</div>
 	    	<div id="<%= task._id %>" class="task-description">
