@@ -1,5 +1,7 @@
 <div class="task-list <%= type %>" data-task-type="<%= type %>">
-	<h2><%= title %></h2>
+	<% if(defined? title) %>
+		<h2><%= title %></h2>
+	<% end %>
 	<% tasks.each do |task| %>
 		<div class="task-group">
 	    	<div class="task-title">
