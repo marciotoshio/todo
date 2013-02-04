@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'bundler'
-require 'better_errors'
 
 Bundler.require
 
