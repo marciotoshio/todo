@@ -5,11 +5,21 @@
 	<% tasks.each do |task| %>
 		<div class="task-group">
 	    	<div class="task-title">
-	    		<input type="checkbox" value="<%= task._id %>" <%= type == 'undone-tasks' ? '' : 'checked="checked"' %> />
+	    		<form action="/done" method="post">
+	    			<input type="checkbox" value="<%= task._id %>" <%= type == 'undone-tasks' ? '' : 'checked="checked"' %> />
+	    		</form>
 	  			<h3><a class="task_title_link" href="#<%= task._id %>"><%= task.title %></a></h3>
 	    	</div>
 	    	<div id="<%= task._id %>" class="task-description">
-        		<%= task._id %> Anim pariatur cliche... 
+	    		<div class="edit-button-wrapper"><a class="description-edit-link" href="#"><i class="icon-edit"></i></a></div>
+	    		<div class="description-text"><pre><%= task.description %></pre></div>
+    			<div class="description-form" style="display:none;">
+    				<form action="/edit_description" method="post">
+    					<input type="hidden" name="task_id" value="<%= task._id %>" />
+    					<textarea name="description" rows="3" placeholder="Some description"><%= task.description %></textarea>
+    					<button type="submit" class="btn"><i class="icon-ok"></i></button>
+    				</form>
+    			</div>
 	    	</div>
 		</div>
 	<% end %>

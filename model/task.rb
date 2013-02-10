@@ -1,8 +1,9 @@
 class Task
 	include MongoMapper::Document
 
-	key :title,		String
-	key :done,		Boolean
+	key :title,		  String
+	key :description, String
+	key :done,		  Boolean
 	timestamps!
 
 	belongs_to :project

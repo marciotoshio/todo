@@ -26,9 +26,15 @@ class ToDo < Sinatra::Base
 		redirect to("/?project_id=#{project._id}")
 	end
 
-	post '/done/:task_id' do
+	post '/done' do
 		task = Task.find(params[:task_id])
 		task.done = !task.done
+		task.save
+	end
+
+	post '/edit_description' do
+		task = Task.find(params[:task_id])
+		task.description = params[:description]
 		task.save
 	end
 end

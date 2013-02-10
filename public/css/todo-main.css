@@ -6,20 +6,40 @@
 
 .task-group .task-title {
 	padding: 0 10px;
+	position: relative;
+}
+
+.task-group .task-title form {
+	display: inline-block;
+	margin: 0;
+	top: 8px;
+	position: absolute;
 }
 
 .task-group .task-title h3 {
 	display: inline-table;
-	margin: 0 5px;
+	margin: 0 20px;
 }
 
 .task-group .task-description {
 	padding: 10px;
 	display: none;
+	position: relative;
+	border-top: 1px solid #e5e5e5;
 }
 
-.task-group .task-description {
-	border-top: 1px solid #e5e5e5;
+.task-group .task-description .edit-button-wrapper {
+	position: absolute;
+	top: 0;
+	float: right;
+	left: 0;
+	margin: 0 10px 10px 0;
+	background-color: rgba(255,255,255,0.7);
+	border-bottom: 1px solid #e5e5e5;
+	border-right: 1px solid #e5e5e5;
+	border-radius: 0 0 4px 0;
+	padding: 5px;
+	display: none;
 }
 
 .done-tasks {
