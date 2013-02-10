@@ -11,7 +11,8 @@ ToDo.Main = function() {
 	}
 
 	function bind_task_title_click() {
-		$('.task_title_link').on('click', function() {
+		$('.task_title_link').on('click', function(event) {
+			event.preventDefault();
 			$($(this).attr('href')).slideToggle();
 		});
 	}
