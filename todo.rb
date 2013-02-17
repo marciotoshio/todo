@@ -8,8 +8,6 @@ require './task_controller'
 
 class ToDo < Sinatra::Base
 	enable :sessions
-	set :app_file, __FILE__
-	set :views, settings.root + '/views'
 	
 	configure :development do
 		MongoMapper.setup({'development' => {'uri' => 'mongodb://127.0.0.1:27017/todo-dev'}}, 'development')
