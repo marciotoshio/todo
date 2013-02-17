@@ -2,6 +2,7 @@ class Project
 	include MongoMapper::Document
 
 	key :name,	String
+	key :uid, String
 
 	many :tasks
 

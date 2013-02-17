@@ -1,14 +1,14 @@
 <div class="row">
 	<div class="span3">
-		<%= partial(:project_list, :projects => @viewmodel.projects) %>
+		<%= partial(:project_list, :projects => @projects) %>
 		<hr />
 		<%= partial(:form_new_project) %>
 	</div>
 	<div class="span9">
-		<h2><%= @viewmodel.project ? "Project #{@viewmodel.project.name} tasks" : 'All tasks' %></h2>
-		<%= partial(:task_list, { :tasks => @viewmodel.undone_tasks, :type => 'undone-tasks' }) %>
+		<h2><%= @project ? "Project #{@project.name} tasks" : 'All tasks' %></h2>
+		<%= partial(:task_list, { :tasks => @undone_tasks, :type => 'undone-tasks' }) %>
 		<hr />
-		<%= partial(:form_new_task, :project => @viewmodel.project) %>
-		<%= partial(:task_list, { :title => 'Done tasks', :tasks => @viewmodel.done_tasks, :type => 'done-tasks' }) %>
+		<%= partial(:form_new_task, :project => @project) %>
+		<%= partial(:task_list, { :title => 'Done tasks', :tasks => @done_tasks, :type => 'done-tasks' }) %>
 	</div>
 </div>
