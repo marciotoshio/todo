@@ -1,4 +1,6 @@
 <ul>
-	<li><a href="/auth/developer">Developer</a></li>
+	<% if(settings.development?) %>
+		<li><a href="/auth/developer">Developer</a></li>
+	<% end %>
 	<li><a href="/auth/twitter">Twitter</a></li>
 </ul>

@@ -1,2 +1,2 @@
 db: mongod
-web: rerun -- thin start -R config.ru -l log/thin.log
+web: thin start -R config.ru -l log/thin.log
