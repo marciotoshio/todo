@@ -9,15 +9,12 @@
 	position: relative;
 }
 
-.task-group .task-title form {
-	display: inline-block;
-	margin: 0;
+.task-group .task-title .done-form {
 	top: 8px;
 	position: absolute;
 }
 
 .task-group .task-title h3 {
-	display: inline-table;
 	margin: 0 20px;
 }
 

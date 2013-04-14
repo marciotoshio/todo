@@ -5,10 +5,14 @@
 	<% tasks.each do |task| %>
 		<div class="task-group">
 	    	<div class="task-title">
-	    		<form action="/done" method="post">
+	    		<form action="/done" method="post" class="done-form">
 	    			<input type="checkbox" value="<%= task._id %>" <%= type == 'undone-tasks' ? '' : 'checked="checked"' %> />
 	    		</form>
 	  			<h3><a class="task_title_link" href="#<%= task._id %>"><%= task.title %></a></h3>
+	  			<form action="/task" method="DELETE" class="pull-right">
+	  				<input type="hidden" value="<%= task._id %>" />
+	  				<button class="btn"><i class="icon-trash"></i></button>
+	  			</form>
 	    	</div>
 	    	<div id="<%= task._id %>" class="task-description">
 	    		<div class="edit-button-wrapper"><a class="description-edit-link" href="#"><i class="icon-edit"></i></a></div>
