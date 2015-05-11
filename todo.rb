@@ -19,7 +19,7 @@ class ToDo < Sinatra::Base
 	configure :production do
 		MongoMapper.setup({'production' => {'uri' => 'mongodb://127.0.0.1:27017/todo'}}, 'production')
 		use OmniAuth::Builder do
-			provider :twitter, '#key#', '#secret#'
+			provider :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
 		end
 	end
 
