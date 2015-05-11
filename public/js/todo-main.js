@@ -5,9 +5,9 @@ ToDo.Main = function() {
 	this.binds = function() {
 		bind_task_title_click();
 		bind_checkbox_click();
-		bind_description_hover();
-		bind_description_link_click();
+		bind_edit_description_link_click();
 		bind_description_form_submit();
+		bind_delete_form_submit();
 	}
 
 	function bind_task_title_click() {
@@ -41,18 +41,12 @@ ToDo.Main = function() {
 		checkbox.prop('checked', to_task_type === 'done-tasks' ? true : false);
 	}
 
-	function bind_description_hover() {
-		$('.task-description').hover(
-			function() { $(this).children('.edit-button-wrapper').show() },
-			function() { $(this).children('.edit-button-wrapper').hide() }
-		);
-	}
-
-	function bind_description_link_click() {
-		$('.description-edit-link').on('click', function(event) {
+	function bind_edit_description_link_click() {
+		$('.edit-description-link').on('click', function(event) {
 			event.preventDefault();
-			$(this).parents('.task-description').children('.description-text').hide();
-			$(this).parents('.task-description').children('.description-form').show();
+			$(this).parents('.task-description').find('.description-text').hide();
+			$(this).parents('.task-description').find('.description-form').show();
+			$(this).parent().hide();
 		});
 	}
 
@@ -66,9 +60,23 @@ ToDo.Main = function() {
 
 	function handle_edit_description_success() {
 		var top_parent = $(this).parents('.task-description');
-		top_parent.find('.description-text pre').text($(this).children('textarea').val());
-		top_parent.children('.description-text').show();
-		top_parent.children('.description-form').hide();
+		top_parent.find('.description-text').text($(this).find('textarea').val());
+		top_parent.find('.description-text').show();
+		top_parent.find('.description-form').hide();
+		top_parent.find('.edit-button-wrapper').show();
+	}
+
+	function bind_delete_form_submit() {
+		$('.delete-form form').on('submit', function(event) {
+			event.preventDefault();
+			var data = $(this).serialize();
+			$.post($(this).attr('action'), data).done(handle_delete_success.call(this));
+		});
+	}
+
+	function handle_delete_success() {
+		var top_parent = $(this).parents('.task-group');
+		top_parent.remove();
 	}
 } 
 

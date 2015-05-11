@@ -4,25 +4,45 @@
 	<% end %>
 	<% tasks.each do |task| %>
 		<div class="task-group">
-	    	<div class="task-title">
-	    		<form action="/done" method="post" class="done-form">
-	    			<input type="checkbox" value="<%= task._id %>" <%= type == 'undone-tasks' ? '' : 'checked="checked"' %> />
-	    		</form>
-	  			<h3><a class="task_title_link" href="#<%= task._id %>"><%= task.title %></a></h3>
-	  			<form action="/task" method="DELETE" class="pull-right">
-	  				<input type="hidden" value="<%= task._id %>" />
-	  				<button class="btn"><i class="icon-trash"></i></button>
-	  			</form>
-	    	</div>
-	    	<div id="<%= task._id %>" class="task-description">
-	    		<div class="edit-button-wrapper"><a class="description-edit-link" href="#"><i class="icon-edit"></i></a></div>
-	    		<div class="description-text"><pre><%= task.description %></pre></div>
-    			<div class="description-form" style="display:none;">
-    				<form action="/edit_description" method="post">
-    					<input type="hidden" name="task_id" value="<%= task._id %>" />
-    					<textarea name="description" rows="3" placeholder="Some description"><%= task.description %></textarea>
-    					<button type="submit" class="btn"><i class="icon-ok"></i></button>
-    				</form>
+	    	
+    		<div class="row">
+	    		<div class="col-xs-10">
+		    		<div class="task-title">
+			    		<form action="/task/done" method="post" class="inline-form">
+				    		<div class="checkbox">
+							    <label>
+						      	<input type="checkbox" value="<%= task._id %>" <%= type == 'undone-tasks' ? '' : 'checked="checked"' %> /> <a class="task_title_link" href="#<%= task._id %>"><%= task.title %></a>
+							    </label>
+							</div>
+			    		</form>
+		  			</div>
+	  			</div>
+	  			<div class="col-xs-2">
+	  				<div class="delete-form">
+			  			<form action="/task/delete" method="post" class="inline-form">
+			  				<input type="hidden" name="id" value="<%= task._id %>" />
+			  				<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+			  			</form>
+		  			</div>
+	  			</div>
+  			</div>
+	    	
+	    	<div id="<%= task._id %>" class="task-description col-xs-10">
+	    		<div class="well">
+		    		<div class="edit-button-wrapper">
+		    			<a class="edit-description-link" href="#"><span class="glyphicon glyphicon-edit"></span></a>
+		    		</div>
+		    		<div class="description-text">
+		    			<%= task.description ||= 'no description' %>
+		    		</div>
+	    			<div class="description-form" style="display:none;">
+	    				<form action="/task/edit_description" method="post" class="form-inline">
+	    					<input type="hidden" name="task_id" value="<%= task._id %>" />
+	    					<textarea name="description" rows="2" class="form-control" placeholder="Some description"><%= task.description %>
+	    					</textarea>
+	    					<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span></button>
+	    				</form>
+	    			</div>
     			</div>
 	    	</div>
 		</div>
