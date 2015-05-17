@@ -21,6 +21,11 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-passenger (0.0.5)
+      capistrano (~> 3.0)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     coderay (1.1.0)
     colorize (0.7.7)
     daemons (1.2.2)
@@ -85,6 +90,8 @@ DEPENDENCIES
   bson_ext
   capistrano
   capistrano-bundler
+  capistrano-passenger
+  capistrano-rvm
   mongo_mapper
   omniauth
   omniauth-twitter

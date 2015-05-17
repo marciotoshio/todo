@@ -35,6 +35,7 @@ set :deploy_to, '/var/www/todo'
 set :keep_releases, 2
 
 set :rvm_type, :system
+set :rvm_ruby_version, 'ruby-2.2.1@todo'
 
 namespace :deploy do
 
