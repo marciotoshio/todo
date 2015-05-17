@@ -34,8 +34,12 @@ set :deploy_to, '/var/www/todo'
 # Default value for keep_releases is 5
 set :keep_releases, 2
 
+#rvm
 set :rvm_type, :system
 set :rvm_ruby_version, 'ruby-2.2.1@todo'
+
+#passenger
+set :passenger_restart_with_sudo, true
 
 namespace :deploy do
 
