@@ -8,6 +8,8 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'capistrano'
 gem 'capistrano-bundler'
+gem 'capistrano-rvm'
+gem 'capistrano-passenger'
 
 group :development do
 	gem 'thin'
