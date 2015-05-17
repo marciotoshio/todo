@@ -30,6 +30,12 @@ set :deploy_to, '/var/www/todo'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_environment, { 
+  'PATH' => '/usr/local/rvm/gems/ruby-2.2.1/bin:/usr/local/rvm/gems/ruby-2.2.1@global/bin:/usr/local/rvm/rubies/ruby-2.2.1/bin:/usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games',
+  'RUBY_VERSION' => 'ruby 2.2.1',
+  'GEM_HOME' => '/usr/local/rvm/gems/ruby-2.2.1',
+  'GEM_PATH' => '/usr/local/rvm/gems/ruby-2.2.1:/usr/local/rvm/gems/ruby-2.2.1@global' 
+}
 
 # Default value for keep_releases is 5
 set :keep_releases, 2
