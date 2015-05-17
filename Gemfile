@@ -7,6 +7,7 @@ gem 'bson_ext'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'capistrano'
+gem 'capistrano-bundler'
 
 group :development do
 	gem 'thin'
