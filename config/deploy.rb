@@ -45,7 +45,6 @@ namespace :deploy do
     end
   end
 
-  desc 'Setting Twitter key'
   task :set_twitter_key, :command do |task, args|
   	on roles(:web) do
 		sed_command = "sed -i --follow-symlinks 's/{TWITTER_KEY}/#{args[:command]}/g' /var/www/todo/current/todo.rb"
@@ -53,7 +52,6 @@ namespace :deploy do
 	end
   end
 
-  desc 'Setting Twitter secret'
   task :set_twitter_secret, :command do |task, args|
 	on roles(:web) do
 		sed_command = "sed -i --follow-symlinks 's/{TWITTER_SECRET}/#{args[:command]}/g' /var/www/todo/current/todo.rb"
@@ -61,4 +59,18 @@ namespace :deploy do
 	end
   end
 
+end
+
+namespace :twitter do
+  task :set_key, :command do |task, args|
+    on roles(:app) do
+      execute "sed -i --follow-symlinks 's/{TWITTER_KEY}/#{args[:command]}/g' /users/tosha/Projects/todo/todo.rb"
+    end
+  end
+
+  task :set_secret, :command do |task, args|
+    on roles(:app) do
+      execute "sed -i --follow-symlinks 's/{TWITTER_SECRET}/#{args[:command]}/g' /users/tosha/Projects/todo/todo.rb"
+    end
+  end
 end
