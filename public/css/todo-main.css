@@ -1,3 +1,28 @@
+h1 {
+	text-align: center;
+}
+
+.projects-header button {
+	background-color: transparent;
+	border: none;
+}
+
+.projects-header button .icon-bar {
+	background-color: #000;
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+}
+
+.projects-header button .icon-bar+.icon-bar {
+  margin-top: 4px;
+}
+
+.projects {
+	display: none;
+}
+
 .task-title {
 	border: 1px solid #e5e5e5;
 	border-radius: 4px;
@@ -27,4 +52,14 @@
 
 .done-tasks {
 	opacity: 0.3;
+}
+
+@media (min-width: 768px) { 
+	.projects {
+		display: block;
+	}
+
+	.projects-header button {
+		display: none;
+	}
 }

@@ -1,4 +1,20 @@
-<h2>Projects</h2>
-<% projects.each do |project| %>
-	<h3><a href="?project_id=<%= project._id %>"><%= project.name %></a></h3>
-<% end %>
+<div class="projects-header">
+	<h2>
+		Projects
+		<button type="button" data-toggle="collapse" data-target="#projects" aria-expanded="false" aria-controls="projects">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</h2>
+</div>
+
+<div id="projects" class="projects">
+	<% projects.each do |project| %>
+		<h3><a href="?project_id=<%= project._id %>"><%= project.name %></a></h3>
+	<% end %>
+	<hr />
+	<%= partial(:form_new_project) %>
+</div>
+	
