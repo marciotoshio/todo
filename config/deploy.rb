@@ -39,30 +39,16 @@ set :rvm_type, :system
 set :rvm_ruby_version, 'ruby-2.2.1@todo'
 
 #passenger
-set :passenger_restart_with_sudo, true
+#set :passenger_restart_with_sudo, true
 
 namespace :deploy do
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
-end
-
-namespace :twitter do
-  task :set_key, :command do |task, args|
-    on roles(:app) do
-      execute "sed -i --follow-symlinks 's/{TWITTER_KEY}/#{args[:command]}/g' /var/www/todo/current/todo.rb"
+  task :set_twitter, :key, :secret do |task, args|
+    on roles(:web) do
+      execute "sed -i --follow-symlinks 's/{TWITTER_KEY}/#{args[:key]}/g' /var/www/todo/current/todo.rb"
+      execute "sed -i --follow-symlinks 's/{TWITTER_SECRET}/#{args[:secret]}/g' /var/www/todo/current/todo.rb"
     end
   end
 
-  task :set_secret, :command do |task, args|
-    on roles(:app) do
-      execute "sed -i --follow-symlinks 's/{TWITTER_SECRET}/#{args[:command]}/g' /var/www/todo/current/todo.rb"
-    end
-  end
+  after :set_twitter, :'passenger:restart'
 end
