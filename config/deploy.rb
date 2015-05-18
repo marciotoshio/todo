@@ -39,7 +39,7 @@ set :rvm_type, :system
 set :rvm_ruby_version, 'ruby-2.2.1@todo'
 
 #passenger
-#set :passenger_restart_with_sudo, true
+set :passenger_restart_with_sudo, true
 
 namespace :deploy do
 
