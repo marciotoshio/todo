@@ -1,7 +1,7 @@
 <%if(project)%>
 	<form action="/project/create_task" method="POST" class="form-inline">
-		<input type="text" name="task_title" class="span3" placeholder="new task" />
+		<input type="text" name="task_title" class="form-control" placeholder="new task" />
 		<input type="hidden" name="project_id" value="<%= project._id %>" />
-		<button type="submit" class="btn"><i class="icon-plus"></i></button>
+		<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 	</form>
 <% end %>
