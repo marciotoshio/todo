@@ -20,7 +20,7 @@ ToDo.Main = function() {
 	function bind_checkbox_click() {
 		$('input[type="checkbox"]').on('click', function() {
 			var task_id = $(this).val();
-			var url = $(this).parent().attr('action');
+			var url = $(this).closest('form').attr('action');
 			var task_type = $(this).parents('.task-list').attr('data-task-type');
 			$.post(url, {'task_id': task_id}).done(handle_done_success.call(this, task_type));
 		});
