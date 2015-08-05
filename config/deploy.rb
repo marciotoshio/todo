@@ -35,7 +35,7 @@ set :deploy_to, '/var/www/todo'
 set :keep_releases, 2
 
 #rvm
-set :rvm_type, :system
+set :rvm_type, :user
 set :rvm_ruby_version, 'ruby-2.2.1@todo'
 
 #passenger
