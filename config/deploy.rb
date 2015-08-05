@@ -47,5 +47,4 @@ namespace :deploy do
     end
   end
 
-  after :set_twitter
 end
