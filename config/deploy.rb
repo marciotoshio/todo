@@ -38,9 +38,6 @@ set :keep_releases, 2
 set :rvm_type, :user
 set :rvm_ruby_version, 'ruby-2.2.1@todo'
 
-#passenger
-set :passenger_restart_with_sudo, true
-
 namespace :deploy do
 
   task :set_twitter, :key, :secret do |task, args|
@@ -50,5 +47,5 @@ namespace :deploy do
     end
   end
 
-  after :set_twitter, :'passenger:restart'
+  after :set_twitter
 end
